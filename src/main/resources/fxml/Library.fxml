@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+<AnchorPane prefHeight="600.0" prefWidth="950.0" styleClass="parent" stylesheets="@../style/Style.css" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="gui.ControllerLibrary">
+    <BorderPane prefHeight="600.0" prefWidth="700.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <top>
+            <HBox alignment="CENTER" prefHeight="30.0" prefWidth="200.0" spacing="10.0" BorderPane.alignment="CENTER">
+                <BorderPane.margin>
+                    <Insets />
+                </BorderPane.margin>
+                <FontIcon iconLiteral="fas-search" styleClass="iconDark" />
+                <TextField fx:id="Filter" prefWidth="500.0" promptText="search" styleClass="textField">
+                    <HBox.margin>
+                        <Insets top="5.0" />
+                    </HBox.margin>
+                </TextField>
+            <FontIcon iconLiteral="fas-times" onMouseClicked="#handleDeleteIcon" styleClass="deleteIcon"/>
+            </HBox>
+        </top>
+        <center>
+            <TreeTableView fx:id="Table" prefHeight="200.0" prefWidth="200.0" styleClass="table-view" BorderPane.alignment="CENTER">
+                <columns>
+                    <TreeTableColumn fx:id="ColArtist" prefWidth="75.0" text="Artist" />
+                    <TreeTableColumn fx:id="ColTrack" prefWidth="75.0" text="Track(s)" />
+                    <TreeTableColumn fx:id="ColPlaybacks" prefWidth="75.0" text="Playbacks" />
+                    <TreeTableColumn fx:id="ColListeningTime" prefWidth="75.0" text="Listening Time (HH:mm)" />
+                </columns>
+                <BorderPane.margin>
+                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                </BorderPane.margin>
+                <columnResizePolicy>
+                    <TreeTableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                </columnResizePolicy>
+            </TreeTableView>
+        </center>
+    </BorderPane>
+</AnchorPane>

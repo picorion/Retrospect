@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<AnchorPane prefHeight="600.0" prefWidth="950.0" styleClass="parent" stylesheets="@../style/Style.css" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="gui.ControllerRanking">
+    <VBox prefHeight="600.0" prefWidth="950.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <padding>
+            <Insets bottom="20.0" left="50.0" right="20.0" top="20.0" />
+        </padding>
+        <HBox alignment="CENTER_LEFT" prefHeight="35.0" prefWidth="880.0">
+            <VBox.margin>
+                <Insets />
+            </VBox.margin>
+            <Label styleClass="mediumTextBold" text="Discover your Favourite Artists and Tracks" />
+            <Label styleClass="mediumText" text="Rank By:">
+                <HBox.margin>
+                    <Insets left="145.0" />
+                </HBox.margin>
+            </Label>
+            <ToggleButton fx:id="ToggleListeningTime" mnemonicParsing="false" onAction="#handleToggleListeningTime" prefWidth="120.0" text="Listening Time">
+                <HBox.margin>
+                    <Insets left="20.0" />
+                </HBox.margin>
+            </ToggleButton>
+            <ToggleButton fx:id="TogglePlaybacks" mnemonicParsing="false" onAction="#handleTogglePlaybacks" prefWidth="120.0" text="Playbacks" />
+        </HBox>
+        <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="200.0">
+            <VBox.margin>
+                <Insets top="20.0" />
+            </VBox.margin>
+            <Label styleClass="mediumText" text="From:">
+                <HBox.margin>
+                    <Insets />
+                </HBox.margin>
+            </Label>
+            <DatePicker fx:id="DateFrom">
+                <HBox.margin>
+                    <Insets left="10.0" />
+                </HBox.margin>
+            </DatePicker>
+            <Label styleClass="mediumText" text="Until:">
+                <HBox.margin>
+                    <Insets left="20.0" />
+                </HBox.margin>
+            </Label>
+            <DatePicker fx:id="DateUntil">
+                <HBox.margin>
+                    <Insets left="10.0" />
+                </HBox.margin>
+            </DatePicker>
+            <Button mnemonicParsing="false" onAction="#handleRefresh" styleClass="buttonDark" text="Refresh">
+                <HBox.margin>
+                    <Insets left="20.0" />
+                </HBox.margin>
+            </Button>
+        </HBox>
+        <HBox prefHeight="100.0" prefWidth="200.0" spacing="100.0">
+            <VBox prefHeight="200.0" prefWidth="350.0" spacing="10.0">
+                <Label styleClass="mediumTextBold" text="Top Artists" />
+                <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                    <Label prefWidth="24.0" styleClass="mediumText" text="1." />
+                    <Label fx:id="Artist1" maxWidth="314.0" styleClass="mediumTextVariable" text="?" />
+                </HBox>
+                <HBox layoutX="10.0" layoutY="57.0" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                    <Label prefWidth="24.0" styleClass="mediumText" text="2." />
+                    <Label fx:id="Artist2" maxWidth="314.0" styleClass="mediumTextVariable" text="?" />
+                </HBox>
+                <HBox layoutX="10.0" layoutY="104.0" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                    <Label prefWidth="24.0" styleClass="mediumText" text="3." />
+                    <Label fx:id="Artist3" maxWidth="314.0" styleClass="mediumTextVariable" text="?" />
+                </HBox>
+                <HBox layoutX="10.0" layoutY="152.0" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                    <Label prefWidth="24.0" styleClass="mediumText" text="4." />
+                    <Label fx:id="Artist4" maxWidth="314.0" styleClass="mediumTextVariable" text="?" />
+                </HBox>
+                <HBox layoutX="10.0" layoutY="199.0" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                    <Label prefWidth="24.0" styleClass="mediumText" text="5." />
+                    <Label fx:id="Artist5" maxWidth="314.0" styleClass="mediumTextVariable" text="?" />
+                </HBox>
+                <HBox layoutX="10.0" layoutY="198.0" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                    <Label prefWidth="24.0" styleClass="mediumText" text="6." />
+                    <Label fx:id="Artist6" maxWidth="314.0" styleClass="mediumTextVariable" text="?" />
+                </HBox>
+                <HBox layoutX="10.0" layoutY="236.0" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                    <Label prefWidth="24.0" styleClass="mediumText" text="7." />
+                    <Label fx:id="Artist7" maxWidth="314.0" styleClass="mediumTextVariable" text="?" />
+                </HBox>
+                <HBox layoutX="10.0" layoutY="273.0" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                    <Label prefWidth="24.0" styleClass="mediumText" text="8." />
+                    <Label fx:id="Artist8" maxWidth="314.0" styleClass="mediumTextVariable" text="?" />
+                </HBox>
+                <HBox layoutX="10.0" layoutY="311.0" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                    <Label prefWidth="24.0" styleClass="mediumText" text="9." />
+                    <Label fx:id="Artist9" maxWidth="314.0" styleClass="mediumTextVariable" text="?" />
+                </HBox>
+                <HBox layoutX="10.0" layoutY="348.0" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                    <Label styleClass="mediumText" text="10." />
+                    <Label fx:id="Artist10" maxWidth="314.0" styleClass="mediumTextVariable" text="?" />
+                </HBox>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="350.0" spacing="10.0">
+                <Label styleClass="mediumTextBold" text="Top Tracks" />
+                <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                    <Label prefWidth="24.0" styleClass="mediumText" text="1." />
+                    <Label fx:id="Track1" maxWidth="314.0" styleClass="mediumTextVariable" text="?" />
+                </HBox>
+                <HBox layoutX="10.0" layoutY="57.0" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                    <Label prefWidth="24.0" styleClass="mediumText" text="2." />
+                    <Label fx:id="Track2" maxWidth="314.0" styleClass="mediumTextVariable" text="?" />
+                </HBox>
+                <HBox layoutX="10.0" layoutY="176.0" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                    <Label prefWidth="24.0" styleClass="mediumText" text="3." />
+                    <Label fx:id="Track3" maxWidth="314.0" styleClass="mediumTextVariable" text="?" />
+                </HBox>
+                <HBox layoutX="10.0" layoutY="215.0" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                    <Label prefWidth="24.0" styleClass="mediumText" text="4." />
+                    <Label fx:id="Track4" maxWidth="314.0" styleClass="mediumTextVariable" text="?" />
+                </HBox>
+                <HBox layoutX="10.0" layoutY="235.0" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                    <Label prefWidth="24.0" styleClass="mediumText" text="5." />
+                    <Label fx:id="Track5" maxWidth="314.0" styleClass="mediumTextVariable" text="?" />
+                </HBox>
+                <HBox layoutX="10.0" layoutY="348.0" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                    <Label prefWidth="24.0" styleClass="mediumText" text="6." />
+                    <Label fx:id="Track6" maxWidth="314.0" styleClass="mediumTextVariable" text="?" />
+                </HBox>
+                <HBox layoutX="10.0" layoutY="361.0" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                    <Label prefWidth="24.0" styleClass="mediumText" text="7." />
+                    <Label fx:id="Track7" maxWidth="314.0" styleClass="mediumTextVariable" text="?" />
+                </HBox>
+                <HBox layoutX="10.0" layoutY="370.0" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                    <Label prefWidth="24.0" styleClass="mediumText" text="8." />
+                    <Label fx:id="Track8" maxWidth="314.0" styleClass="mediumTextVariable" text="?" />
+                </HBox>
+                <HBox layoutX="10.0" layoutY="377.0" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                    <Label prefWidth="24.0" styleClass="mediumText" text="9." />
+                    <Label fx:id="Track9" maxWidth="314.0" styleClass="mediumTextVariable" text="?" />
+                </HBox>
+                <HBox layoutX="10.0" layoutY="382.0" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                    <Label prefWidth="25.0" styleClass="mediumText" text="10." />
+                    <Label fx:id="Track10" maxWidth="314.0" styleClass="mediumTextVariable" text="?" />
+                </HBox>
+            </VBox>
+            <VBox.margin>
+                <Insets top="30.0" />
+            </VBox.margin>
+        </HBox>
+    </VBox>
+</AnchorPane>

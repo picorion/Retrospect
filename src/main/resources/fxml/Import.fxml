@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+<AnchorPane prefHeight="600.0" prefWidth="950.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="gui.ControllerImport">
+    <BorderPane prefWidth="700.0" styleClass="parent" stylesheets="@../style/Style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <top>
+            <VBox styleClass="parent" BorderPane.alignment="CENTER">
+                <HBox alignment="CENTER_LEFT" prefHeight="35.0">
+                    <VBox.margin>
+                        <Insets right="20.0"/>
+                    </VBox.margin>
+                    <Label prefWidth="670.0" styleClass="mediumTextBold"
+                           text="Specify the Location of your Export Data Directory"/>
+                    <CheckBox fx:id="ExtendedModeCheckBox" mnemonicParsing="false" prefWidth="200.0"
+                              text="Mode for Extended Data">
+                        <HBox.margin>
+                            <Insets/>
+                        </HBox.margin>
+                    </CheckBox>
+                </HBox>
+                <HBox alignment="CENTER_LEFT" spacing="20.0">
+                    <VBox.margin>
+                        <Insets right="20.0" top="30.0" />
+                    </VBox.margin>
+                    <Label styleClass="mediumText" text="Path:" />
+                    <TextField fx:id="ImportTextField" onAction="#handleImport" prefWidth="250.0" promptText="e.g. C:\\Users\You\MyData\" styleClass="textField" />
+                    <Button fx:id="Choose" mnemonicParsing="false" onAction="#handleChoose" styleClass="buttonDark" text="Choose" />
+                    <Button fx:id="ImportButton" mnemonicParsing="false" onAction="#handleImport" styleClass="buttonDark" text="Import" />
+               <ProgressIndicator fx:id="ProgressIndicator" prefWidth="30.0" visible="false" />
+               <FontIcon fx:id="StatusIcon" styleClass="iconLight" iconSize="25"/>
+                </HBox>
+                <HBox alignment="CENTER_LEFT" prefWidth="200.0" spacing="20.0">
+                    <VBox.margin>
+                        <Insets right="20.0" top="30.0" />
+                    </VBox.margin>
+                    <Label styleClass="mediumText" text="Required Playback Time:" />
+                    <Slider fx:id="ImportSlider" blockIncrement="1.0" majorTickUnit="1.0" max="60.0" minorTickCount="1" prefWidth="175.0" snapToTicks="true" value="5.0" />
+                    <Label fx:id="ImportSliderDisplay" prefWidth="30.0" styleClass="mediumTextVariable" text="5" />
+                    <Label styleClass="mediumText" text="Seconds" />
+                </HBox>
+                <BorderPane.margin>
+                    <Insets left="50.0" right="20.0" top="20.0" />
+                </BorderPane.margin>
+            </VBox>
+        </top>
+        <bottom>
+            <HBox alignment="BOTTOM_CENTER" prefWidth="200.0" spacing="20.0" BorderPane.alignment="BOTTOM_CENTER">
+                <BorderPane.margin>
+                    <Insets bottom="5.0" left="20.0" right="20.0" />
+                </BorderPane.margin>
+                <Label styleClass="smallText" text="Imported Artists:" />
+                <Label fx:id="ImportedArtists" prefWidth="60.0" styleClass="smallTextVariable" text="0" />
+                <Label styleClass="smallText" text="Imported Tracks:" />
+                <Label fx:id="ImportedTracks" prefWidth="60.0" styleClass="smallTextVariable" text="0" />
+                <Label styleClass="smallText" text="Imported Playbacks:" />
+                <Label fx:id="ImportedPlaybacks" prefWidth="60.0" styleClass="smallTextVariable" text="0" />
+            </HBox>
+        </bottom>
+        <center>
+            <TextArea fx:id="TextOverview" editable="false" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="300.0" prefWidth="850.0" styleClass="text-area" BorderPane.alignment="BOTTOM_CENTER">
+                <BorderPane.margin>
+                    <Insets bottom="30.0" />
+                </BorderPane.margin>
+            </TextArea>
+        </center>
+    </BorderPane>
+</AnchorPane>

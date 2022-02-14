@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<AnchorPane prefHeight="600.0" prefWidth="950.0" stylesheets="@../style/Style.css" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="gui.ControllerYourData">
+    <VBox prefHeight="600.0" prefWidth="700.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <HBox prefHeight="216.0" prefWidth="200.0">
+            <VBox.margin>
+                <Insets bottom="20.0" left="50.0" right="20.0" top="20.0" />
+            </VBox.margin>
+            <ImageView fx:id="Image" fitHeight="216.0" fitWidth="216.0" pickOnBounds="true" preserveRatio="true">
+                <HBox.margin>
+                    <Insets right="200.0" />
+                </HBox.margin>
+                <Image url="@../images/imageNotFound.png" />
+            </ImageView>
+            <VBox prefHeight="200.0" prefWidth="120.0" spacing="20.0" styleClass="mediumText">
+                <HBox.margin>
+                    <Insets right="20.0" />
+                </HBox.margin>
+                <Label text="Username:" />
+                <Label text="Name:" />
+                <Label text="Birthdate:" />
+                <Label text="Gender:" />
+                <Label text="Creation Time:" />
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="200.0" spacing="20.0" styleClass="mediumTextVariable">
+                <Label fx:id="Username" styleClass="mediumTextVariable" text="?" />
+                <Label fx:id="RealName" styleClass="mediumTextVariable" text="?" />
+                <Label fx:id="Birthdate" styleClass="mediumTextVariable" text="?" />
+                <Label fx:id="Gender" styleClass="mediumTextVariable" text="?" />
+                <Label fx:id="CreationTime" styleClass="mediumTextVariable" text="?" />
+            </VBox>
+        </HBox>
+        <HBox prefHeight="100.0" prefWidth="200.0">
+            <VBox.margin>
+                <Insets bottom="20.0" left="50.0" right="20.0" top="20.0" />
+            </VBox.margin>
+            <VBox prefHeight="200.0" prefWidth="120.0" spacing="20.0" styleClass="mediumText">
+                <HBox.margin>
+                    <Insets right="20.0" />
+                </HBox.margin>
+                <Label text="Street:" />
+                <Label text="City:" />
+                <Label text="Postal Code:" />
+                <Label text="State:" />
+                <Label text="Country:" />
+                <Label text="Facebook ID:" />
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="275.0" spacing="20.0" styleClass="mediumTextVariable">
+                <Label fx:id="Street" styleClass="mediumTextVariable" text="?" />
+                <Label fx:id="City" styleClass="mediumTextVariable" text="?" />
+                <Label fx:id="PostalCode" styleClass="mediumTextVariable" text="?" />
+                <Label fx:id="State" styleClass="mediumTextVariable" text="?" />
+                <Label fx:id="Country" styleClass="mediumTextVariable" text="?" />
+                <Label fx:id="FacebookID" styleClass="mediumTextVariable" text="?" />
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="80.0" spacing="20.0" styleClass="mediumText">
+                <Label text="Mail:" />
+                <Label text="Number:" />
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="275.0" spacing="20.0" styleClass="mediumTextVariable">
+                <Label fx:id="Email" styleClass="mediumTextVariable" text="?" />
+                <Label fx:id="MobileNumber" styleClass="mediumTextVariable" text="?" />
+            </VBox>
+        </HBox>
+    </VBox>
+</AnchorPane>

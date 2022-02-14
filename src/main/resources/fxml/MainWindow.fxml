@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import org.kordamp.ikonli.javafx.*?>
+<AnchorPane prefHeight="625.0" prefWidth="1250.0" stylesheets="@../style/Style.css"
+            xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="gui.ControllerMainWindow">
+    <BorderPane>
+        <center>
+            <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+                <HBox alignment="TOP_RIGHT" prefHeight="35.0" prefWidth="700.0" styleClass="titleBar">
+                    <Button fx:id="Minimize" mnemonicParsing="false" onAction="#minimize">
+                        <graphic>
+                            <FontIcon iconLiteral="fas-minus" styleClass="button"/>
+                        </graphic>
+                    </Button>
+                    <Button fx:id="Close" mnemonicParsing="false" onAction="#close" styleClass="closeButton">
+                        <graphic>
+                            <FontIcon iconLiteral="fas-times" styleClass="closeButton"/>
+                        </graphic>
+                    </Button>
+                </HBox>
+                <AnchorPane fx:id="Parent" prefWidth="950.0" styleClass="parent" VBox.vgrow="ALWAYS"/>
+            </VBox>
+        </center>
+        <left>
+            <VBox prefHeight="700.0" prefWidth="300.0" styleClass="sidebar" BorderPane.alignment="CENTER">
+                <ImageView fitHeight="100.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true">
+                    <Image fx:id="Logo" url="@../images/logo_200x600.png"/>
+                    <VBox.margin>
+                        <Insets bottom="20.0"/>
+                    </VBox.margin>
+                </ImageView>
+                <HBox fx:id="SidebarImport" alignment="CENTER_LEFT" onMouseClicked="#focusImport">
+                    <padding>
+                        <Insets bottom="10.0" left="10.0" top="10.0"/>
+                    </padding>
+                    <HBox minWidth="50" alignment="CENTER">
+                        <FontIcon fx:id="SidebarImportIcon" iconLiteral="fas-file-import" iconSize="22">
+                            <HBox.margin>
+                                <Insets right="10.0" left="0.5"/>
+                            </HBox.margin>
+                        </FontIcon>
+                    </HBox>
+                    <Label fx:id="SidebarImportLabel" text="Import"/>
+                </HBox>
+                <HBox fx:id="SidebarYourData" alignment="CENTER_LEFT" onMouseClicked="#focusYourData">
+                    <padding>
+                        <Insets bottom="10.0" left="10.0" top="10.0"/>
+                    </padding>
+                    <HBox minWidth="50" alignment="CENTER">
+                        <FontIcon fx:id="SidebarYourDataIcon" iconLiteral="fas-user" iconSize="22">
+                            <HBox.margin>
+                                <Insets right="10.0" left="1"/>
+                            </HBox.margin>
+                        </FontIcon>
+                    </HBox>
+                    <Label fx:id="SidebarYourDataLabel" text="Your Data"/>
+                </HBox>
+                <HBox fx:id="SidebarLibrary" alignment="CENTER_LEFT" layoutX="20.0" layoutY="96.0"
+                      onMouseClicked="#focusLibrary">
+                    <padding>
+                        <Insets bottom="10.0" left="10.0" top="10.0"/>
+                    </padding>
+                    <VBox.margin>
+                        <Insets/>
+                    </VBox.margin>
+                    <HBox minWidth="50" alignment="CENTER">
+                        <FontIcon fx:id="SidebarLibraryIcon" iconLiteral="fas-list" iconSize="22">
+                            <HBox.margin>
+                                <Insets right="10.0" left="0.5"/>
+                            </HBox.margin>
+                        </FontIcon>
+                    </HBox>
+                    <Label fx:id="SidebarLibraryLabel" text="Library"/>
+                </HBox>
+                <HBox fx:id="SidebarPlaybacks" alignment="CENTER_LEFT" onMouseClicked="#focusPlaybacks">
+                    <padding>
+                        <Insets bottom="10.0" left="10.0" top="10.0"/>
+                    </padding>
+                    <HBox minWidth="50" alignment="CENTER">
+                        <FontIcon fx:id="SidebarPlaybacksIcon" iconLiteral="fas-random" iconSize="22">
+                            <HBox.margin>
+                                <Insets right="10.0"/>
+                            </HBox.margin>
+                        </FontIcon>
+                    </HBox>
+                    <Label fx:id="SidebarPlaybacksLabel" text="Playbacks"/>
+                </HBox>
+                <HBox fx:id="SidebarRanking" alignment="CENTER_LEFT" onMouseClicked="#focusRanking">
+                    <padding>
+                        <Insets bottom="10.0" left="10.0" top="10.0"/>
+                    </padding>
+                    <HBox minWidth="50" alignment="CENTER">
+                        <FontIcon fx:id="SidebarRankingIcon" iconLiteral="fas-star" iconSize="22">
+                            <HBox.margin>
+                                <Insets right="10.0"/>
+                            </HBox.margin>
+                        </FontIcon>
+                    </HBox>
+                    <Label fx:id="SidebarRankingLabel" text="Ranking"/>
+                </HBox>
+                <HBox fx:id="SidebarListeningTime" alignment="CENTER_LEFT" onMouseClicked="#focusListeningTime">
+                    <padding>
+                        <Insets bottom="10.0" left="10.0" top="10.0"/>
+                    </padding>
+                    <HBox minWidth="50" alignment="CENTER">
+                        <FontIcon fx:id="SidebarListeningTimeIcon" iconLiteral="fas-calendar-alt" iconSize="22">
+                            <HBox.margin>
+                                <Insets right="10.0" left="0.25"/>
+                            </HBox.margin>
+                        </FontIcon>
+                    </HBox>
+                    <Label fx:id="SidebarListeningTimeLabel" text="Listening Time"/>
+                </HBox>
+                <HBox fx:id="SidebarExtendedData" alignment="CENTER_LEFT" layoutX="10.0" layoutY="294.0"
+                      onMouseClicked="#focusExtendedData">
+                    <padding>
+                        <Insets bottom="10.0" left="10.0" top="10.0"/>
+                    </padding>
+                    <HBox minWidth="50" alignment="CENTER">
+                        <FontIcon fx:id="SidebarExtendedDataIcon" iconLiteral="fas-chart-pie" iconSize="22">
+                            <HBox.margin>
+                                <Insets right="10.0"/>
+                            </HBox.margin>
+                        </FontIcon>
+                    </HBox>
+                    <Label fx:id="SidebarExtendedDataLabel" text="Extended Data"/>
+                </HBox>
+                <VBox alignment="BOTTOM_CENTER" prefHeight="200.0" prefWidth="100.0" VBox.vgrow="ALWAYS">
+                    <HBox alignment="BOTTOM_CENTER" prefHeight="100.0" prefWidth="200.0" spacing="50.0">
+                        <VBox.margin>
+                            <Insets bottom="5.0" left="20.0" right="20.0"/>
+                        </VBox.margin>
+                        <Label fx:id="Version" styleClass="versionInformation" text="???"/>
+                        <Label fx:id="Author" styleClass="versionInformation" text="by github.com/picorion"/>
+                    </HBox>
+                </VBox>
+            </VBox>
+        </left>
+    </BorderPane>
+</AnchorPane>

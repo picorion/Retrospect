@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<AnchorPane prefHeight="600.0" prefWidth="950.0" styleClass="parent" stylesheets="@../style/Style.css" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="gui.ControllerExtendedData">
+    <VBox prefHeight="600.0" prefWidth="950.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <padding>
+            <Insets bottom="20.0" left="50.0" right="20.0" top="20.0" />
+        </padding>
+        <HBox alignment="CENTER_LEFT" minHeight="35.0" prefHeight="35.0" prefWidth="880.0">
+            <VBox.margin>
+                <Insets />
+            </VBox.margin>
+            <Label styleClass="mediumTextBold" text="Additional Analysis for Extended Data (by Listening Time)" />
+        </HBox>
+        <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="200.0">
+            <VBox.margin>
+                <Insets top="20.0" />
+            </VBox.margin>
+            <Label styleClass="mediumText" text="From:">
+                <HBox.margin>
+                    <Insets />
+                </HBox.margin>
+            </Label>
+            <DatePicker fx:id="DateFrom">
+                <HBox.margin>
+                    <Insets left="10.0" />
+                </HBox.margin>
+            </DatePicker>
+            <Label styleClass="mediumText" text="Until:">
+                <HBox.margin>
+                    <Insets left="20.0" />
+                </HBox.margin>
+            </Label>
+            <DatePicker fx:id="DateUntil">
+                <HBox.margin>
+                    <Insets left="10.0" />
+                </HBox.margin>
+            </DatePicker>
+            <Button mnemonicParsing="false" onAction="#handleRefresh" styleClass="buttonDark" text="Refresh">
+                <HBox.margin>
+                    <Insets left="20.0" />
+                </HBox.margin>
+            </Button>
+        </HBox>
+        <HBox prefHeight="100.0" prefWidth="200.0" spacing="100.0">
+            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="350.0" spacing="10.0">
+                <Label styleClass="mediumTextBold" text="Distribution of Podcasts and Songs" />
+            <PieChart fx:id="PieChartTypeDistribution" labelsVisible="false" minHeight="270.0" minWidth="350.0" prefHeight="270.0" prefWidth="350.0" />
+            </VBox>
+            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="350.0" spacing="10.0">
+                <Label styleClass="mediumTextBold" text="Distribution of Platforms" />
+            <PieChart fx:id="PieChartPlatformDistribution" labelsVisible="false" minHeight="350.0" minWidth="350.0" prefWidth="350.0" />
+            </VBox>
+            <VBox.margin>
+                <Insets top="30.0" />
+            </VBox.margin>
+        </HBox>
+    </VBox>
+</AnchorPane>

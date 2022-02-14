@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.StackedBarChart?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<AnchorPane prefHeight="600.0" prefWidth="950.0" styleClass="parent" stylesheets="@../style/Style.css" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="gui.ControllerListeningTime">
+    <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+        </padding>
+        <HBox alignment="CENTER_LEFT" prefHeight="35.0" prefWidth="200.0">
+            <VBox.margin>
+                <Insets left="30.0" />
+            </VBox.margin>
+            <Label alignment="TOP_LEFT" styleClass="mediumTextBold" text="Average Listening Time (in Minutes)" />
+            <Label styleClass="mediumText" text="Total Time:">
+                <HBox.margin>
+                    <Insets left="40.0" />
+                </HBox.margin>
+            </Label>
+            <Label fx:id="TotalListeningTime" minWidth="110.0" styleClass="mediumTextVariable" text="0">
+                <HBox.margin>
+                    <Insets left="20.0" />
+                </HBox.margin>
+            </Label>
+            <ToggleButton fx:id="ToggleDaily" mnemonicParsing="false" onAction="#handleToggleDaily" prefWidth="80.0" text="Daily">
+                <HBox.margin>
+                    <Insets left="20.0" />
+                </HBox.margin>
+            </ToggleButton>
+            <ToggleButton fx:id="ToggleMonthly" mnemonicParsing="false" onAction="#handleToggleMonthly" prefWidth="80.0" text="Monthly" />
+            <ToggleButton fx:id="ToggleYearly" mnemonicParsing="false" onAction="#handleToggleYearly" prefWidth="80.0" text="Yearly" />
+        </HBox>
+        <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="200.0">
+            <VBox.margin>
+                <Insets left="30.0" top="20.0" />
+            </VBox.margin>
+            <Label styleClass="mediumText" text="From:" />
+            <DatePicker fx:id="DateFrom">
+                <HBox.margin>
+                    <Insets left="10.0" />
+                </HBox.margin>
+            </DatePicker>
+            <Label styleClass="mediumText" text="Until:">
+                <HBox.margin>
+                    <Insets left="20.0" />
+                </HBox.margin>
+            </Label>
+            <DatePicker fx:id="DateUntil">
+                <HBox.margin>
+                    <Insets left="10.0" />
+                </HBox.margin>
+            </DatePicker>
+            <Button mnemonicParsing="false" onAction="#handleRefresh" styleClass="buttonDark" text="Refresh">
+                <HBox.margin>
+                    <Insets left="20.0" />
+                </HBox.margin>
+            </Button>
+        </HBox>
+        <HBox prefWidth="200.0" VBox.vgrow="ALWAYS">
+            <StackedBarChart fx:id="Chart" HBox.hgrow="ALWAYS">
+                <xAxis>
+                    <CategoryAxis fx:id="XAxis" />
+                </xAxis>
+                <yAxis>
+                    <NumberAxis fx:id="YAxis" side="LEFT" />
+                </yAxis>
+                <HBox.margin>
+                    <Insets top="20.0" />
+                </HBox.margin>
+            </StackedBarChart>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+        </HBox>
+    </VBox>
+</AnchorPane>
