@@ -1,8 +1,6 @@
 ![#Retrospect - Logo](doc/images/retrospect_logo.svg)
 
 [![Java CI with Maven](https://github.com/picorion/Retrospect/actions/workflows/maven.yml/badge.svg)](https://github.com/picorion/Retrospect/actions/workflows/maven.yml)
-[![CodeFactor](https://www.codefactor.io/repository/github/picorion/retrospect/badge/master)](https://www.codefactor.io/repository/github/picorion/retrospect/overview/master)
-[![Total Downloads](https://img.shields.io/github/downloads/picorion/Retrospect/total.svg)](https://github.com/picorion/Retrospect/releases)
 
 ## About
 
