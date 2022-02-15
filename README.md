@@ -1,4 +1,5 @@
-![#Retrospect - Logo](doc/images/retrospect_logo.svg)
+![#Retrospect - Logo](doc/images/retrospect_logo_dark.svg#gh-light-mode-only)
+![#Retrospect - Logo](doc/images/retrospect_logo_light.svg#gh-dark-mode-only)
 
 [![Java CI with Maven](https://github.com/picorion/Retrospect/actions/workflows/maven.yml/badge.svg)](https://github.com/picorion/Retrospect/actions/workflows/maven.yml)
 
