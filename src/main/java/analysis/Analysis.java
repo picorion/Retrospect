@@ -1,7 +1,11 @@
 package analysis;
 
 
-import model.*;
+import model.Artist;
+import model.Data;
+import model.Playback;
+import model.PlaybackDatabase;
+import model.Track;
 
 import java.time.LocalDateTime;
 import java.time.YearMonth;

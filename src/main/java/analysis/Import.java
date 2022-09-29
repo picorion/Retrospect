@@ -1,13 +1,23 @@
 package analysis;
 
 import javafx.scene.image.Image;
-import model.*;
+import model.Artist;
+import model.Data;
+import model.Playback;
+import model.PlaybackDatabase;
+import model.Track;
+import model.Userdata;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.Reader;
 import java.nio.charset.StandardCharsets;
 import java.time.LocalDate;
 import java.time.LocalDateTime;

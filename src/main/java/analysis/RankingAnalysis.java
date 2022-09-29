@@ -1,6 +1,10 @@
 package analysis;
 
-import model.*;
+import model.Data;
+import model.MusicData;
+import model.Playback;
+import model.PlaybackDatabase;
+import model.RankingData;
 
 import java.time.LocalDate;
 import java.time.YearMonth;
