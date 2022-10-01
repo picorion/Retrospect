@@ -33,6 +33,12 @@ public class ControllerPlaybacks implements Initializable {
 
     ObservableList<Playback> entries = FXCollections.observableArrayList();
 
+    /**
+     * Initializes the table
+     *
+     * @param location  does not get used
+     * @param resources does not get used
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         ColArtist.setCellValueFactory(param -> param.getValue().getArtist().getArtistNameProperty());
@@ -45,15 +51,15 @@ public class ControllerPlaybacks implements Initializable {
         /* Creates a comparator to sort the listening times correctly */
         ColListeningTime.setComparator((dataA, dataB) -> {
             if (dataA.equals(dataB)) return 0;
-            long valueA = Long.parseLong(dataA.substring(dataA.length()-2)) + Long.parseLong(dataA.substring(0, dataA.length()-3)) * 60;
-            long valueB = Long.parseLong(dataB.substring(dataB.length()-2)) + Long.parseLong(dataB.substring(0, dataB.length()-3)) * 60;
+            long valueA = Long.parseLong(dataA.substring(dataA.length() - 2)) + Long.parseLong(dataA.substring(0, dataA.length() - 3)) * 60;
+            long valueB = Long.parseLong(dataB.substring(dataB.length() - 2)) + Long.parseLong(dataB.substring(0, dataB.length() - 3)) * 60;
             return Long.compare(valueB, valueA);
         });
 
         Data.playbacksChangeEvent.addListener(change -> {
             importEntries();
             Data.playbacksChangeEvent.setValue(false);
-            //Dont know why this works or is needed but the event listener stops working without this line
+            //Don't know why this works or is needed but the event listener stops working without this line
             Data.playbacksChangeEvent.getValue();
         });
 
@@ -71,7 +77,9 @@ public class ControllerPlaybacks implements Initializable {
     /**
      * Deletes the search text from the filter
      */
-    public void handleDeleteIcon() { Filter.setText(""); }
+    public void handleDeleteIcon() {
+        Filter.setText("");
+    }
 
     /**
      * Adds playbacks from the database to a list and adds it to the table
@@ -80,7 +88,7 @@ public class ControllerPlaybacks implements Initializable {
         Table.getItems().clear();
         entries.clear();
         for (PlaybackDatabase database : Data.playbackDatabase) {
-            entries.addAll(database.playbacks);
+            entries.addAll(database.getPlaybacks());
         }
         Table.getItems().setAll(entries);
     }
@@ -88,7 +96,7 @@ public class ControllerPlaybacks implements Initializable {
     /**
      * Creates a list only containing artists and artists with tracks containing a search text
      *
-     * @param entries list with all playbacks
+     * @param entries    list with all playbacks
      * @param searchText text to look for
      * @return list with entries containing the search text
      */

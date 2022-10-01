@@ -30,7 +30,7 @@ public class ControllerExtendedData implements Initializable {
     /**
      * Listens to a change event to refresh the data if necessary
      *
-     * @param location .
+     * @param location  .
      * @param resources .
      */
     @Override
@@ -43,7 +43,7 @@ public class ControllerExtendedData implements Initializable {
                 DateUntil.setValue(Data.getLastPlaybackDate());
                 handleRefresh();
             }
-            //Don't know why this works or is needed but the event listener stops working without this line
+            //don't know why this works or is needed but the event listener stops working without this line
             Data.extendedDataChangeEvent.getValue();
         });
     }

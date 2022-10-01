@@ -17,6 +17,13 @@ import java.util.Comparator;
  */
 public class RankingAnalysis {
 
+    /**
+     * Private constructor to prevent instantiation
+     */
+    private RankingAnalysis() {
+        throw new IllegalStateException("Utility class");
+    }
+
     //ranking data which contains artists / tracks with their listening time and playbacks of a time period
     private static ArrayList<RankingData> artistRankingData = new ArrayList<>();
     private static ArrayList<RankingData> trackRankingData = new ArrayList<>();
@@ -25,7 +32,7 @@ public class RankingAnalysis {
      * Creates the ranking data for the given time period
      * the ranking data contains a key (music data -> artist or track), the listening time and the number of playbacks
      *
-     * @param from start date
+     * @param from  start date
      * @param until end date
      */
     public static void createRankingData(LocalDate from, LocalDate until) {
@@ -35,7 +42,7 @@ public class RankingAnalysis {
             if ((database.getYearMonth().isAfter(YearMonth.from(from)) && database.getYearMonth().isBefore(YearMonth.from(until)))
                     || database.getYearMonth().toString().equals(YearMonth.from(from).toString())
                     || database.getYearMonth().toString().equals(YearMonth.from(until).toString())) {
-                for (Playback playback : database.playbacks) {
+                for (Playback playback : database.getPlaybacks()) {
                     if (from.isBefore(LocalDate.from(playback.getDateTime())) && until.isAfter(LocalDate.from(playback.getDateTime())) || from.isEqual(LocalDate.from(playback.getDateTime())) || until.isEqual(LocalDate.from(playback.getDateTime()))) {
                         RankingData currentArtist = searchRankingData(artistRankingData, playback.getArtist());
                         if (currentArtist == null) {
@@ -61,7 +68,7 @@ public class RankingAnalysis {
      * Searches for a rankingData element in an arrayList
      *
      * @param rankingData arrayList containing the ranking data
-     * @param musicData an musicData element (artist or track) to look for
+     * @param musicData   an musicData element (artist or track) to look for
      * @return rankingData element if it exists, otherwise null
      */
     private static RankingData searchRankingData(ArrayList<RankingData> rankingData, MusicData musicData) {
@@ -72,7 +79,7 @@ public class RankingAnalysis {
     }
 
     /**
-     *  Calls getListeningTimeRanking for the top ten artists by listening time
+     * Calls getListeningTimeRanking for the top ten artists by listening time
      */
     public static RankingData[] createArtistListeningTimeRanking() {
         return getListeningTimeRanking(artistRankingData);
@@ -103,12 +110,20 @@ public class RankingAnalysis {
         return topTen;
     }
 
-    //Calls getPlaybackRanking for the top ten artists by the number of playbacks
+    /**
+     * Calls {@link RankingAnalysis#getPlaybackRanking(ArrayList)} to generate ranking data for artists
+     *
+     * @return {@link RankingData} containing the top ten artists by the number of playbacks
+     */
     public static RankingData[] createArtistPlaybackRanking() {
         return getPlaybackRanking(artistRankingData);
     }
 
-    //Calls getPlaybackRanking for the top ten tracks by the number of playbacks
+    /**
+     * Calls {@link RankingAnalysis#getPlaybackRanking(ArrayList)} to generate ranking data for tracks
+     *
+     * @return {@link RankingData} containing the top ten tracks by the number of playbacks
+     */
     public static RankingData[] createTrackPlaybackRanking() {
         return getPlaybackRanking(trackRankingData);
     }

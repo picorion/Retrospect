@@ -2,6 +2,7 @@ package model;
 
 import java.time.YearMonth;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Object which contains the imported playbacks grouped by a year and month
@@ -9,7 +10,7 @@ import java.util.ArrayList;
 public class PlaybackDatabase {
 
     private final YearMonth yearMonth;
-    public ArrayList<Playback> playbacks = new ArrayList<>();
+    private final List<Playback> playbacks = new ArrayList<>();
 
     public PlaybackDatabase(YearMonth yearMonth) {
         this.yearMonth = yearMonth;
@@ -17,6 +18,10 @@ public class PlaybackDatabase {
 
     public YearMonth getYearMonth() {
         return yearMonth;
+    }
+
+    public List<Playback> getPlaybacks() {
+        return playbacks;
     }
 
 }

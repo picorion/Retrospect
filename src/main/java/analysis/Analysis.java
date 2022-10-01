@@ -1,6 +1,5 @@
 package analysis;
 
-
 import model.Artist;
 import model.Data;
 import model.Playback;
@@ -16,6 +15,13 @@ import java.time.YearMonth;
 public class Analysis {
 
     /**
+     * Private constructor to prevent instantiation
+     */
+    private Analysis() {
+        throw new IllegalStateException("Utility class");
+    }
+
+    /**
      * Searches for an artist in the library
      *
      * @param artistName Name of the searched artist
@@ -29,7 +35,7 @@ public class Analysis {
     }
 
     /**
-     * Searches for an track from an artist in the library
+     * Searches for a track from an artist in the library
      *
      * @param artist    Artist object of the interpreter
      * @param trackName Name of the searched track
@@ -43,7 +49,7 @@ public class Analysis {
     }
 
     /**
-     * Searches for an database by year and month in the databases
+     * Searches for a database by year and month in the databases
      *
      * @param yearMonth Year and month to search for
      * @return Database of the right year and month if it exists, otherwise null
@@ -61,7 +67,7 @@ public class Analysis {
      * @return True if there is already an identical entry
      */
     public static boolean duplicatePlaybackCheck(PlaybackDatabase database, LocalDateTime dateTime, Artist artist, Track track, long listeningTime) {
-        for (Playback p : database.playbacks) {
+        for (Playback p : database.getPlaybacks()) {
             if (p.getDateTime().equals(dateTime) && p.getArtist() == artist && p.getTrack() == track && p.getListeningTime() == listeningTime)
                 return true;
         }

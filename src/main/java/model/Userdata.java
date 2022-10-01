@@ -7,20 +7,28 @@ import javafx.scene.image.Image;
  */
 public class Userdata {
 
-    private static String street = "unknown";
-    private static String city = "unknown";
-    private static String postalCode = "unknown";
-    private static String state = "unknown";
-    private static String country = "unknown";
-    private static String facebookID = "unknown";
-    private static String realName = "unknown";
+    /**
+     * Private constructor to prevent instantiation
+     */
+    private Userdata() {
+        throw new IllegalStateException("Utility class");
+    }
+
+    private static final String UNKNOWN = "unknown";
+    private static String street = UNKNOWN;
+    private static String city = UNKNOWN;
+    private static String postalCode = UNKNOWN;
+    private static String state = UNKNOWN;
+    private static String country = UNKNOWN;
+    private static String facebookID = UNKNOWN;
+    private static String realName = UNKNOWN;
     private static Image image = new Image("/images/imageNotFound.png");
-    private static String username = "unknown";
-    private static String email = "unknown";
-    private static String birthdate = "unknown";
-    private static String gender = "unknown";
-    private static String mobileNumber = "unknown";
-    private static String creationTime = "unknown";
+    private static String username = UNKNOWN;
+    private static String email = UNKNOWN;
+    private static String birthdate = UNKNOWN;
+    private static String gender = UNKNOWN;
+    private static String mobileNumber = UNKNOWN;
+    private static String creationTime = UNKNOWN;
 
     public static String getStreet() { return street; }
     public static void setStreet(String street) { Userdata.street = street; }

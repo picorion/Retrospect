@@ -4,7 +4,8 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * Ranking data of an artist or track with data of a specified period
- * ONLY FOR RANKING ANALYSIS
+ * <p>
+ * <strong>only for the ranking analysis</strong>
  */
 public class RankingData {
 

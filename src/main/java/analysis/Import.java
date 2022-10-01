@@ -21,6 +21,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.YearMonth;
@@ -31,6 +32,13 @@ import java.util.Objects;
  * Methods for the data import from spotify export files
  */
 public class Import {
+
+    /**
+     * Private constructor to prevent instantiation
+     */
+    private Import() {
+        throw new IllegalStateException("Utility class");
+    }
 
     private static final Logger LOGGER = LoggerFactory.getLogger(Import.class);
 
@@ -48,7 +56,7 @@ public class Import {
      * Gets data from a .json file with array structure
      *
      * @param file .json file
-     * @return JSONArray from the file
+     * @return {@link JSONArray} from the file
      */
     public static JSONArray readJsonArray(File file) {
         JSONParser parser = new JSONParser();
@@ -67,13 +75,13 @@ public class Import {
      * Gets data from a .json file with object structure
      *
      * @param file .json file
-     * @return JSONObject from the file
+     * @return {@link JSONObject} from the file
      */
     public static JSONObject readJsonObject(File file) {
         JSONParser parser = new JSONParser();
         JSONObject data = null;
         try {
-            Reader reader = new BufferedReader(new InputStreamReader(new FileInputStream(file), StandardCharsets.UTF_8));
+            Reader reader = new BufferedReader(new InputStreamReader(Files.newInputStream(file.toPath()), StandardCharsets.UTF_8));
             data = (JSONObject) parser.parse(reader);
             reader.close();
         } catch (IOException | ParseException e) {
@@ -85,7 +93,7 @@ public class Import {
     /**
      * Imports streaming history data from a given spotify export folder
      *
-     * @param directory containing one or more StreamingHistory*.json or endsong_*.json file(s)
+     * @param directory containing one or more <em>StreamingHistory*.json</em> or <em>endsong_*.json</em> file(s)
      */
     public static void importData(File directory, int requiredPlaybackTime) {
 
@@ -123,7 +131,7 @@ public class Import {
     /**
      * Imports default streaming history files
      *
-     * @param directory containing one or more StreamingHistory*.json file(s)
+     * @param directory            containing one or more StreamingHistory*.json file(s)
      * @param requiredPlaybackTime .
      */
     private static void importDefaultStreamingHistory(File directory, int requiredPlaybackTime) {
@@ -132,7 +140,7 @@ public class Import {
         assert historyFilenames != null;
         File[] historyFiles = new File[historyFilenames.length];
         for (int i = 0; i < historyFilenames.length; i++) {
-            historyFiles[i] = new File(directory + "\\" + historyFilenames[i]);
+            historyFiles[i] = new File(directory, historyFilenames[i]);
         }
         //runs through the files and creates arrays containing the playbacks
         for (File i : historyFiles) {
@@ -179,7 +187,7 @@ public class Import {
                     currentArtist.increaseTotalListeningTime(listeningTime);
                     currentTrack.increaseTotalPlaybacks();
                     currentTrack.increaseTotalListeningTime(listeningTime);
-                    currentDatabase.playbacks.add(new Playback(currentArtist, currentTrack, dateTime, listeningTime));
+                    currentDatabase.getPlaybacks().add(new Playback(currentArtist, currentTrack, dateTime, listeningTime));
                     Data.increasePlaybackCounter();
                 }
                 //updates the first and last playback dates
@@ -199,7 +207,7 @@ public class Import {
     /**
      * Imports extended streaming history files
      *
-     * @param directory containing one or more endsong_*.json file(s)
+     * @param directory            containing one or more endsong_*.json file(s)
      * @param requiredPlaybackTime .
      */
     private static void importExtendedStreamingHistory(File directory, int requiredPlaybackTime) {
@@ -209,7 +217,7 @@ public class Import {
         assert historyFilenames != null;
         File[] historyFiles = new File[historyFilenames.length];
         for (int i = 0; i < historyFilenames.length; i++) {
-            historyFiles[i] = new File(directory + "\\" + historyFilenames[i]);
+            historyFiles[i] = new File(directory, historyFilenames[i]);
         }
         //runs through the files and creates arrays containing the playbacks
         for (File i : historyFiles) {
@@ -231,21 +239,28 @@ public class Import {
                     dateTime = dateTime.truncatedTo(ChronoUnit.MINUTES);
                     Artist currentArtist;
                     if (podcast) currentArtist = Analysis.searchArtist((String) playback.get("episode_show_name"));
-                    else currentArtist = Analysis.searchArtist((String) playback.get("master_metadata_album_artist_name"));
+                    else
+                        currentArtist = Analysis.searchArtist((String) playback.get("master_metadata_album_artist_name"));
                     if (currentArtist == null) {
-                        if (podcast) currentArtist = new Artist((String) playback.get("episode_show_name"), dateTime, true);
-                        else currentArtist = new Artist((String) playback.get("master_metadata_album_artist_name"), dateTime);
+                        if (podcast)
+                            currentArtist = new Artist((String) playback.get("episode_show_name"), dateTime, true);
+                        else
+                            currentArtist = new Artist((String) playback.get("master_metadata_album_artist_name"), dateTime);
                         Data.library.add(currentArtist);
                         Data.increaseArtistCounter();
                     }
                     Track currentTrack;
-                    if (podcast) currentTrack = Analysis.searchTrack(currentArtist, (String) playback.get("episode_name"));
-                    else currentTrack = Analysis.searchTrack(currentArtist, (String) playback.get("master_metadata_track_name"));
+                    if (podcast)
+                        currentTrack = Analysis.searchTrack(currentArtist, (String) playback.get("episode_name"));
+                    else
+                        currentTrack = Analysis.searchTrack(currentArtist, (String) playback.get("master_metadata_track_name"));
                     if (currentTrack == null) {
                         //insert "(String) playback.get("artistName")" instead of "" to display the artist names in the library
                         //removed because of the indent bug caused by searching / filtering
-                        if (podcast) currentTrack = new Track("", (String) playback.get("episode_name"), dateTime, true);
-                        else currentTrack = new Track("", (String) playback.get("master_metadata_track_name"), dateTime);
+                        if (podcast)
+                            currentTrack = new Track("", (String) playback.get("episode_name"), dateTime, true);
+                        else
+                            currentTrack = new Track("", (String) playback.get("master_metadata_track_name"), dateTime);
                         currentArtist.addTrack(currentTrack);
                         currentArtist.increaseTracks();
                         Data.increaseTrackCounter();
@@ -268,15 +283,17 @@ public class Import {
                         currentArtist.increaseTotalListeningTime(listeningTime);
                         currentTrack.increaseTotalPlaybacks();
                         currentTrack.increaseTotalListeningTime(listeningTime);
-                        currentDatabase.playbacks.add(new Playback(currentArtist, currentTrack, dateTime, listeningTime, playback.get("platform").toString()));
+                        currentDatabase.getPlaybacks().add(new Playback(currentArtist, currentTrack, dateTime, listeningTime, playback.get("platform").toString()));
                         Data.increasePlaybackCounter();
                     }
                     //updates the first and last playback dates
                     LocalDate listeningDate = LocalDate.parse(playback.get("ts").toString().substring(0, 10));
                     if (Data.getFirstPlaybackDate() == null) Data.setFirstPlaybackDate(listeningDate);
-                    else if (Data.getFirstPlaybackDate().isAfter(listeningDate)) Data.setFirstPlaybackDate(listeningDate);
+                    else if (Data.getFirstPlaybackDate().isAfter(listeningDate))
+                        Data.setFirstPlaybackDate(listeningDate);
                     if (Data.getLastPlaybackDate() == null) Data.setLastPlaybackDate(listeningDate);
-                    else if (Data.getLastPlaybackDate().isBefore(listeningDate)) Data.setLastPlaybackDate(listeningDate);
+                    else if (Data.getLastPlaybackDate().isBefore(listeningDate))
+                        Data.setLastPlaybackDate(listeningDate);
                 }
             }
             Data.updateImportedArtists();

@@ -98,12 +98,13 @@ public class ControllerMainWindow implements Initializable {
      * @throws IOException .
      */
     public ControllerMainWindow() throws IOException {
+        /* required for declaring the possible throw of an IOException */
     }
 
     /**
      * Calls focusImport() to show the importPane on startup
      *
-     * @param location .
+     * @param location  .
      * @param resources .
      */
     @Override
@@ -170,7 +171,7 @@ public class ControllerMainWindow implements Initializable {
     }
 
     /**
-     * Focuses the importPane by showing it in the parentPane of the mainWindow
+     * Focuses the "import" pane by showing it in the parentPane of the mainWindow
      */
     @FXML
     private void focusImport() {
@@ -191,6 +192,9 @@ public class ControllerMainWindow implements Initializable {
         unfocusExtendedData();
     }
 
+    /**
+     * Unfocuses the "import" pane by resetting the style of the sidebar entry
+     */
     private void unfocusImport() {
         SidebarImport.getStyleClass().clear();
         SidebarImport.getStyleClass().add("sidebarEntry");
@@ -200,6 +204,9 @@ public class ControllerMainWindow implements Initializable {
         SidebarImportIcon.getStyleClass().add("iconLight");
     }
 
+    /**
+     * Focuses the "your data" pane by showing it in the parentPane of the mainWindow
+     */
     @FXML
     private void focusYourData() {
         if (!Data.importStatus.get()) {
@@ -221,6 +228,9 @@ public class ControllerMainWindow implements Initializable {
         }
     }
 
+    /**
+     * Unfocuses the "your data" pane by resetting the style of the sidebar entry
+     */
     private void unfocusYourData() {
         SidebarYourData.getStyleClass().clear();
         SidebarYourData.getStyleClass().add("sidebarEntry");
@@ -230,6 +240,9 @@ public class ControllerMainWindow implements Initializable {
         SidebarYourDataIcon.getStyleClass().add("iconLight");
     }
 
+    /**
+     * Focuses the "library" pane by showing it in the parentPane of the mainWindow
+     */
     @FXML
     private void focusLibrary() {
         if (!Data.importStatus.get()) {
@@ -251,6 +264,9 @@ public class ControllerMainWindow implements Initializable {
         }
     }
 
+    /**
+     * Unfocuses the "library" pane by resetting the style of the sidebar entry
+     */
     private void unfocusLibrary() {
         SidebarLibrary.getStyleClass().clear();
         SidebarLibrary.getStyleClass().add("sidebarEntry");
@@ -260,6 +276,9 @@ public class ControllerMainWindow implements Initializable {
         SidebarLibraryIcon.getStyleClass().add("iconLight");
     }
 
+    /**
+     * Focuses the "playbacks" pane by showing it in the parentPane of the mainWindow
+     */
     @FXML
     private void focusPlaybacks() {
         if (!Data.importStatus.get()) {
@@ -281,6 +300,9 @@ public class ControllerMainWindow implements Initializable {
         }
     }
 
+    /**
+     * Unfocuses the "playbacks" pane by resetting the style of the sidebar entry
+     */
     private void unfocusPlaybacks() {
         SidebarPlaybacks.getStyleClass().clear();
         SidebarPlaybacks.getStyleClass().add("sidebarEntry");
@@ -290,6 +312,9 @@ public class ControllerMainWindow implements Initializable {
         SidebarPlaybacksIcon.getStyleClass().add("iconLight");
     }
 
+    /**
+     * Focuses the "ranking" pane by showing it in the parentPane of the mainWindow
+     */
     @FXML
     private void focusRanking() {
         if (!Data.importStatus.get()) {
@@ -311,6 +336,9 @@ public class ControllerMainWindow implements Initializable {
         }
     }
 
+    /**
+     * Unfocuses the "ranking" pane by resetting the style of the sidebar entry
+     */
     private void unfocusRanking() {
         SidebarRanking.getStyleClass().clear();
         SidebarRanking.getStyleClass().add("sidebarEntry");
@@ -320,6 +348,9 @@ public class ControllerMainWindow implements Initializable {
         SidebarRankingIcon.getStyleClass().add("iconLight");
     }
 
+    /**
+     * Focuses the "listening time" pane by showing it in the parentPane of the mainWindow
+     */
     @FXML
     private void focusListeningTime() {
         if (!Data.importStatus.get()) {
@@ -341,6 +372,9 @@ public class ControllerMainWindow implements Initializable {
         }
     }
 
+    /**
+     * Unfocuses the "listening time" pane by resetting the style of the sidebar entry
+     */
     private void unfocusListeningTime() {
         SidebarListeningTime.getStyleClass().clear();
         SidebarListeningTime.getStyleClass().add("sidebarEntry");
@@ -350,6 +384,9 @@ public class ControllerMainWindow implements Initializable {
         SidebarListeningTimeIcon.getStyleClass().add("iconLight");
     }
 
+    /**
+     * Focuses the "extended data" pane by showing it in the parentPane of the mainWindow
+     */
     @FXML
     private void focusExtendedData() {
         if (!Data.importStatus.get() && Data.getExtendedMode()) {
@@ -371,6 +408,9 @@ public class ControllerMainWindow implements Initializable {
         }
     }
 
+    /**
+     * Unfocuses the "extended data" pane by resetting the style of the sidebar entry
+     */
     private void unfocusExtendedData() {
         if (Data.getExtendedMode()) {
             SidebarExtendedData.getStyleClass().clear();

@@ -55,8 +55,7 @@ public class ControllerLibrary implements Initializable {
         ColTrack.setComparator((dataA, dataB) -> {
             if (isNumeric(dataA) && isNumeric(dataB)) {
                 return Integer.compare(Integer.parseInt(dataA), Integer.parseInt(dataB));
-            }
-            else {
+            } else {
                 return dataB.compareToIgnoreCase(dataA);
             }
         });
@@ -64,15 +63,15 @@ public class ControllerLibrary implements Initializable {
         /* Creates a comparator to sort the listening times correctly */
         ColListeningTime.setComparator((dataA, dataB) -> {
             if (dataA.equals(dataB)) return 0;
-            long valueA = Long.parseLong(dataA.substring(dataA.length()-2)) + Long.parseLong(dataA.substring(0, dataA.length()-3)) * 60;
-            long valueB = Long.parseLong(dataB.substring(dataB.length()-2)) + Long.parseLong(dataB.substring(0, dataB.length()-3)) * 60;
+            long valueA = Long.parseLong(dataA.substring(dataA.length() - 2)) + Long.parseLong(dataA.substring(0, dataA.length() - 3)) * 60;
+            long valueB = Long.parseLong(dataB.substring(dataB.length() - 2)) + Long.parseLong(dataB.substring(0, dataB.length() - 3)) * 60;
             return Long.compare(valueB, valueA);
         });
 
         Data.libraryChangeEvent.addListener(change -> {
             importEntries();
             Data.libraryChangeEvent.setValue(false);
-            //Dont know why this works or is needed but the event listener stops working without this line
+            //Don't know why this works or is needed but the event listener stops working without this line
             Data.libraryChangeEvent.getValue();
         });
 
@@ -92,6 +91,7 @@ public class ControllerLibrary implements Initializable {
 
     /**
      * Checks if a string is numeric
+     *
      * @param text given string value
      * @return true if the string is totally numeric
      */
@@ -151,7 +151,7 @@ public class ControllerLibrary implements Initializable {
      *
      * @param list       list with all entries
      * @param searchText text to look for
-     * @return list with entries containing the search text
+     * @return {@link ObservableList} with entries containing the search text
      */
     private ObservableList<TreeItem<MusicData>> filterList(ObservableList<TreeItem<MusicData>> list, String searchText) {
         List<TreeItem<MusicData>> filteredList = new ArrayList<>();

@@ -56,8 +56,8 @@ public class ControllerImport implements Initializable {
     /**
      * Initializes the slider and the related label
      *
-     * @param location  .
-     * @param resources .
+     * @param location  does not get used
+     * @param resources does not get used
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -131,7 +131,7 @@ public class ControllerImport implements Initializable {
                     ProgressIndicator.setVisible(false);
                     Data.importStatus.set(false);
                     Platform.runLater(() ->        //enables the extended mode checkbox after the import finishes
-                        ExtendedModeCheckBox.setDisable(false)
+                            ExtendedModeCheckBox.setDisable(false)
                     );
                 }
             };

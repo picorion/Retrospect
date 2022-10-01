@@ -19,6 +19,13 @@ import java.time.format.DateTimeFormatter;
  */
 public class Data {
 
+    /**
+     * Private constructor to prevent instantiation
+     */
+    private Data() {
+        throw new IllegalStateException("Utility class");
+    }
+
     private static final Logger LOGGER = LoggerFactory.getLogger(Data.class);
 
     //library containing the imported artists and their tracks

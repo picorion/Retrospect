@@ -52,7 +52,7 @@ public class ControllerYourData implements Initializable {
         Data.userdataChangeEvent.addListener(change -> {
             importUserdata();
             Data.userdataChangeEvent.setValue(false);
-            //Dont know why this works or is needed but the event listener stops working without this line
+            //Don't know why this works or is needed but the event listener stops working without this line
             Data.userdataChangeEvent.getValue();
         });
     }

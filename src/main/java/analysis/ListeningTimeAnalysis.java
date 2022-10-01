@@ -13,6 +13,7 @@ import java.time.YearMonth;
 import java.time.chrono.ChronoLocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 /**
  * Methods for the analysis of listening times
@@ -20,6 +21,13 @@ import java.util.Collections;
 public class ListeningTimeAnalysis {
 
     /**
+     * Private constructor to prevent instantiation
+     */
+    private ListeningTimeAnalysis() {
+        throw new IllegalStateException("Utility class");
+    }
+
+    /*
      * listening time values for a specified period by days, index declaration: (daily)
      * 1   Monday          2   Tuesday             3   Wednesday           4   Thursday
      * 5   Friday          6   Saturday            7   Sunday              0   Average
@@ -28,7 +36,7 @@ public class ListeningTimeAnalysis {
     public static ObservableList<Long> morning = FXCollections.observableArrayList(0L, 0L, 0L, 0L, 0L, 0L, 0L, 0L);
     public static ObservableList<Long> afternoon = FXCollections.observableArrayList(0L, 0L, 0L, 0L, 0L, 0L, 0L, 0L);
     public static ObservableList<Long> evening = FXCollections.observableArrayList(0L, 0L, 0L, 0L, 0L, 0L, 0L, 0L);
-    /**
+    /*
      * listening time values for a specified period by months, index declaration: (monthly)
      * 1    January        2    February      ...       12  December       0   Average
      */
@@ -42,7 +50,7 @@ public class ListeningTimeAnalysis {
     /**
      * Refreshes the listening time values with data from the given period
      *
-     * @param from start date
+     * @param from  start date
      * @param until end date
      */
     public static void refresh(LocalDate from, LocalDate until) {
@@ -55,7 +63,7 @@ public class ListeningTimeAnalysis {
         totalListeningTime.set(0);
         totalPlaybacks.set(0);
         //creates a list containing all years of the period and adds placeholders to years according to the number of years
-        ArrayList<String> yearList = getYears(from, until);
+        List<String> yearList = getYears(from, until);
         for (int i = 0; i < yearList.size(); i++) {
             years.add(0L);
         }
@@ -67,7 +75,7 @@ public class ListeningTimeAnalysis {
                     && database.getYearMonth().isBefore(YearMonth.from(until)))
                     || database.getYearMonth().toString().equals(YearMonth.from(from).toString())
                     || database.getYearMonth().toString().equals(YearMonth.from(until).toString())) {
-                for (Playback playback : database.playbacks) {
+                for (Playback playback : database.getPlaybacks()) {
                     if (from.isBefore(ChronoLocalDate.from(playback.getDateTime()))
                             && until.isAfter(ChronoLocalDate.from(playback.getDateTime()))
                             || from.isEqual(ChronoLocalDate.from(playback.getDateTime()))
@@ -245,7 +253,7 @@ public class ListeningTimeAnalysis {
     /**
      * Counts the individual months of a time period
      *
-     * @param from start date
+     * @param from  start date
      * @param until end date
      * @return array containing the individual number of months
      */
@@ -263,7 +271,7 @@ public class ListeningTimeAnalysis {
     /**
      * Counts the months of a given time period
      *
-     * @param from start date
+     * @param from  start date
      * @param until end date
      * @return number of months
      */
@@ -272,11 +280,11 @@ public class ListeningTimeAnalysis {
     }
 
     /**
-     * Returns an array containing the years where data is available
+     * Returns an array containing the years when data is available
      *
      * @return String ArrayList
      */
-    public static ArrayList<String> getYears(LocalDate from, LocalDate until) {
+    public static List<String> getYears(LocalDate from, LocalDate until) {
         ArrayList<String> years = new ArrayList<>();
         for (PlaybackDatabase database : Data.playbackDatabase) {
             int year = database.getYearMonth().getYear();

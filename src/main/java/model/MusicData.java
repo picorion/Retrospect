@@ -26,8 +26,14 @@ public abstract class MusicData {
     private final ObservableList<Track> tracks = FXCollections.observableArrayList();
     private final boolean podcast;  //only provided by extended export data, default is false
 
-    //default constructor
-    public MusicData(String artist, String track, LocalDateTime dateTime) {
+    /**
+     * default constructor
+     *
+     * @param artist   artist of the track
+     * @param track    name of the track
+     * @param dateTime date and time of listening
+     */
+    protected MusicData(String artist, String track, LocalDateTime dateTime) {
         artistNameProperty.set(artist);
         if (track == null || track.isEmpty()) titleProperty.set("0");
         else titleProperty.set(track);
@@ -38,8 +44,15 @@ public abstract class MusicData {
         this.podcast = false;
     }
 
-    //constructor for extended data declared as podcast
-    public MusicData(String artist, String track, LocalDateTime dateTime, boolean podcast) {
+    /**
+     * constructor for podcasts contained in extended data
+     *
+     * @param artist   artist of the track or podcast
+     * @param track    name of the track or podcast
+     * @param dateTime date and time of listening
+     * @param podcast  true if it is a podcast
+     */
+    protected MusicData(String artist, String track, LocalDateTime dateTime, boolean podcast) {
         artistNameProperty.set(artist);
         if (track == null || track.isEmpty()) titleProperty.set("0");
         else titleProperty.set(track);
@@ -50,35 +63,166 @@ public abstract class MusicData {
         this.podcast = podcast;
     }
 
-    public String getArtistName() { return artistNameProperty.getValue(); }
-    public StringProperty getArtistNameProperty() { return artistNameProperty; }
+    /**
+     * Returns the name of the artist as {@link String}
+     *
+     * @return name of the artist as {@link String}
+     */
+    public String getArtistName() {
+        return artistNameProperty.getValue();
+    }
 
-    void setTitle(String title) { this.titleProperty = new SimpleStringProperty(title); }
-    public String getTitle() { return titleProperty.getValue(); }
-    public StringProperty getTitleProperty() { return titleProperty; }
+    /**
+     * Returns the name of the artist as {@link StringProperty}
+     *
+     * @return name of the artist as {@link StringProperty}
+     */
+    public StringProperty getArtistNameProperty() {
+        return artistNameProperty;
+    }
 
-    public int getTotalPlaybacks() { return totalPlaybacksProperty.getValue(); }
-    public IntegerProperty getTotalPlaybacksProperty() { return totalPlaybacksProperty; }
-    public void increaseTotalPlaybacks() { totalPlaybacksProperty.set(totalPlaybacksProperty.getValue() + 1); }
+    /**
+     * Sets the title of a track (also used to store the number of tracks of artists in {@link Artist}
+     *
+     * @param title name of the track
+     */
+    void setTitle(String title) {
+        this.titleProperty = new SimpleStringProperty(title);
+    }
 
-    public long getTotalListeningTime() { return totalListeningTimeProperty.getValue(); }
+    /**
+     * Returns the name of the track as {@link String}
+     *
+     * @return name of the track as {@link String}
+     */
+    public String getTitle() {
+        return titleProperty.getValue();
+    }
+
+    /**
+     * Returns the name of the track as {@link StringProperty}
+     *
+     * @return name of the track as {@link StringProperty}
+     */
+    public StringProperty getTitleProperty() {
+        return titleProperty;
+    }
+
+    /**
+     * Returns the total number of playbacks
+     *
+     * @return total number of playbacks
+     */
+    public int getTotalPlaybacks() {
+        return totalPlaybacksProperty.getValue();
+    }
+
+    /**
+     * Returns the number of playbacks as {@link IntegerProperty}
+     *
+     * @return number of playbacks as {@link IntegerProperty}
+     */
+    public IntegerProperty getTotalPlaybacksProperty() {
+        return totalPlaybacksProperty;
+    }
+
+    /**
+     * increases the total number of playbacks by one
+     */
+    public void increaseTotalPlaybacks() {
+        totalPlaybacksProperty.set(totalPlaybacksProperty.getValue() + 1);
+    }
+
+    /**
+     * Returns the total listening time
+     *
+     * @return total listening time
+     */
+    public long getTotalListeningTime() {
+        return totalListeningTimeProperty.getValue();
+    }
+
+    /**
+     * Returns the total listening time as {@link StringProperty}
+     *
+     * @return total listening time as {@link StringProperty}
+     */
     public StringProperty getTotalListeningTimeProperty() {
         String time = String.format("%02d:%02d", TimeUnit.MILLISECONDS.toHours(getTotalListeningTime()),
                 TimeUnit.MILLISECONDS.toMinutes(getTotalListeningTime()) % TimeUnit.HOURS.toMinutes(1));
         return new SimpleStringProperty(time);
     }
-    public void increaseTotalListeningTime(long time) { totalListeningTimeProperty.set(getTotalListeningTime() + time); }
 
-    public LocalDateTime getFirstListened() { return firstListened; }
-    public void updateFirstListened(LocalDateTime dateTime) { firstListened = dateTime; }
+    /**
+     * Increases the total listening time with the given value
+     *
+     * @param time time to add on
+     */
+    public void increaseTotalListeningTime(long time) {
+        totalListeningTimeProperty.set(getTotalListeningTime() + time);
+    }
 
-    public LocalDateTime getLastListened() { return lastListened; }
-    public void updateLastListened(LocalDateTime dateTime) { lastListened = dateTime; }
+    /**
+     * Returns the data and time a track or artist got the first time listened
+     *
+     * @return data and time a track or artist got the first time listened
+     */
+    public LocalDateTime getFirstListened() {
+        return firstListened;
+    }
 
-    public void addTrack(Track track) { tracks.add(track); }
+    /**
+     * Updates the time and date a track or artist got the first time listened
+     *
+     * @param dateTime new time and date
+     */
+    public void updateFirstListened(LocalDateTime dateTime) {
+        firstListened = dateTime;
+    }
 
-    public ObservableList<Track> getTracks() { return tracks; }
+    /**
+     * Returns the data and time a track or artist got listened the last time
+     *
+     * @return data and time a track or artist got the last time listened
+     */
+    public LocalDateTime getLastListened() {
+        return lastListened;
+    }
 
-    public boolean isPodcast() { return podcast; }
+    /**
+     * Updates the time and date a track or artist got the last time listened
+     *
+     * @param dateTime new time and date
+     */
+    public void updateLastListened(LocalDateTime dateTime) {
+        lastListened = dateTime;
+    }
+
+    /**
+     * Adds a track to the list of an artist
+     *
+     * @param track track to add
+     */
+    public void addTrack(Track track) {
+        tracks.add(track);
+    }
+
+    /**
+     * Returns the list of tracks of an artist
+     *
+     * @return list of tracks
+     */
+    public ObservableList<Track> getTracks() {
+        return tracks;
+    }
+
+    /**
+     * Check if the track is a podcast or a song
+     *
+     * @return true if the track is a podcast and not a song
+     */
+    public boolean isPodcast() {
+        return podcast;
+    }
 
 }

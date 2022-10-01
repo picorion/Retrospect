@@ -19,7 +19,7 @@ import org.slf4j.LoggerFactory;
 
 import java.net.URL;
 import java.time.LocalDate;
-import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 @SuppressWarnings("unchecked")
@@ -60,7 +60,7 @@ public class ControllerListeningTime implements Initializable {
     /**
      * Sets the series names, adds listeners and initializes the chart
      *
-     * @param location .
+     * @param location  .
      * @param resources .
      */
     @Override
@@ -267,7 +267,7 @@ public class ControllerListeningTime implements Initializable {
                 (new XYChart.Data<>("Average", ListeningTimeAnalysis.months.get(0)))
         );
         seriesYears.getData().clear();
-        ArrayList<String> years = ListeningTimeAnalysis.getYears(from, until);
+        List<String> years = ListeningTimeAnalysis.getYears(from, until);
         for (int i = 0; i < ListeningTimeAnalysis.years.size(); i++) {
             seriesYears.getData().add(new XYChart.Data<>(years.get(i), ListeningTimeAnalysis.years.get(i)));
         }

@@ -79,8 +79,8 @@ public class ControllerRanking implements Initializable {
     /**
      * Refreshes on library changes the top ten artists and tracks for the maximum period
      *
-     * @param location  .
-     * @param resources .
+     * @param location  does not get used
+     * @param resources does not get used
      */
     @Override
     @FXML

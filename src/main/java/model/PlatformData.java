@@ -2,7 +2,8 @@ package model;
 
 /**
  * Object that contains the data of individual platforms listened from
- * ONLY FOR EXTENDED DATA ANALYSIS
+ * <p>
+ * <strong>only used for analysis of extended data</strong>
  */
 public class PlatformData {
 
