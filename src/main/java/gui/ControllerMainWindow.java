@@ -354,7 +354,7 @@ public class ControllerMainWindow implements Initializable {
     @FXML
     private void focusListeningTime() {
         if (!Data.importStatus.get()) {
-            LOGGER.debug("showing \2listening time\" pane");
+            LOGGER.debug("showing \"listening time\" pane");
             Parent.getChildren().clear();
             Parent.getChildren().add(listeningTimePane);
             SidebarListeningTime.getStyleClass().clear();
