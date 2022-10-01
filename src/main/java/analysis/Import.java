@@ -11,6 +11,8 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -29,6 +31,8 @@ import java.util.Objects;
  * Methods for the data import from spotify export files
  */
 public class Import {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(Import.class);
 
     /**
      * Checks if a directory at least contains one type of spotify export data
@@ -107,7 +111,7 @@ public class Import {
         importUserData(directory);
 
         //indicates a library, database and userdata change for listening methods
-        System.out.println("<Change Events>");
+        LOGGER.debug("triggering change events");
         Data.libraryChangeEvent.setValue(true);
         Data.playbacksChangeEvent.setValue(true);
         Data.rankingChangeEvent.setValue(true);

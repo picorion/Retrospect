@@ -8,6 +8,8 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -17,13 +19,15 @@ import java.time.format.DateTimeFormatter;
  */
 public class Data {
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(Data.class);
+
     //library containing the imported artists and their tracks
     public static ObservableList<Artist> library = FXCollections.observableArrayList();
     //contains all playbacks grouped by years and months
     public static ObservableList<PlaybackDatabase> playbackDatabase = FXCollections.observableArrayList();
     //clears all data
     public static void clearData() {
-        System.out.println("<ClearData>");
+        LOGGER.debug("clearing data");
         updateTextOverview(" ℹ\talready imported streaming data got cleared\n");
         firstPlaybackDate = null;
         lastPlaybackDate = null;
@@ -43,10 +47,10 @@ public class Data {
     }
 
     //date and time formatter (2020-01-01 04:20)
-    private final static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+    private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
     public static DateTimeFormatter getFormatter() { return formatter; }
     //date and time formatter for extended spotify data (2020-01-01T04:20Z)
-    private final static DateTimeFormatter formatterExtended = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ssz");
+    private static final DateTimeFormatter formatterExtended = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ssz");
     public static DateTimeFormatter getFormatterExtended() { return formatterExtended; }
 
     //counts added artists

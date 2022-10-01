@@ -8,11 +8,15 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Tooltip;
 import model.Data;
 import model.PlatformData;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class ControllerExtendedData implements Initializable {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(ControllerExtendedData.class);
 
     @FXML
     DatePicker DateFrom;
@@ -39,7 +43,7 @@ public class ControllerExtendedData implements Initializable {
                 DateUntil.setValue(Data.getLastPlaybackDate());
                 handleRefresh();
             }
-            //Dont know why this works or is needed but the event listener stops working without this line
+            //Don't know why this works or is needed but the event listener stops working without this line
             Data.extendedDataChangeEvent.getValue();
         });
     }
@@ -49,7 +53,7 @@ public class ControllerExtendedData implements Initializable {
      */
     @FXML
     private void handleRefresh() {
-        System.out.println(">Extended Data Refresh<");
+        LOGGER.debug("handling refresh of extended data");
         DateFrom.getStyleClass().remove("date-picker-error");
         DateUntil.getStyleClass().remove("date-picker-error");
         PieChartTypeDistribution.getData().clear();

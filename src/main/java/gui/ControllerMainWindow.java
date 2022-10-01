@@ -14,12 +14,16 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import model.Data;
 import org.kordamp.ikonli.javafx.FontIcon;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class ControllerMainWindow implements Initializable {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(ControllerMainWindow.class);
 
     @FXML
     AnchorPane Parent;
@@ -107,12 +111,12 @@ public class ControllerMainWindow implements Initializable {
         //starts with the display of the import pane
         focusImport();
         //displays the current version and the author on the lower left
-        Version.setText("v0.11.0");
+        Version.setText("v0.11.0"); //TODO: version
         Author.setText("by github.com/picorion");
         //switches between default and extended mode
         Data.getExtendedModeProperty().addListener(change -> {
-            if (Data.getExtendedMode()) System.out.println(">Extended Mode Enabled<");
-            else System.out.println(">Default Mode Enabled<");
+            if (Data.getExtendedMode()) LOGGER.debug("extended mode enabled");
+            else LOGGER.debug("default mode enabled");
             unfocusExtendedData();
         });
     }
@@ -124,7 +128,7 @@ public class ControllerMainWindow implements Initializable {
      */
     @FXML
     private void close(ActionEvent event) {
-        System.out.println(">Close<");
+        LOGGER.debug("closing window");
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.close();
     }
@@ -160,7 +164,7 @@ public class ControllerMainWindow implements Initializable {
      */
     @FXML
     private void minimize(ActionEvent event) {
-        System.out.println(">Minimize<");
+        LOGGER.debug("minimizing window");
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setIconified(true);
     }
@@ -170,7 +174,7 @@ public class ControllerMainWindow implements Initializable {
      */
     @FXML
     private void focusImport() {
-        System.out.println("[Import Pane]");
+        LOGGER.debug("showing \"import\" pane");
         Parent.getChildren().clear();
         Parent.getChildren().add(importPane);
         SidebarImport.getStyleClass().clear();
@@ -199,7 +203,7 @@ public class ControllerMainWindow implements Initializable {
     @FXML
     private void focusYourData() {
         if (!Data.importStatus.get()) {
-            System.out.println("[YourData Pane]");
+            LOGGER.debug("showing \"your data\" pane");
             Parent.getChildren().clear();
             Parent.getChildren().add(yourDataPane);
             SidebarYourData.getStyleClass().clear();
@@ -229,7 +233,7 @@ public class ControllerMainWindow implements Initializable {
     @FXML
     private void focusLibrary() {
         if (!Data.importStatus.get()) {
-            System.out.println("[Library Pane]");
+            LOGGER.debug("showing \"library\" pane");
             Parent.getChildren().clear();
             Parent.getChildren().add(libraryPane);
             SidebarLibrary.getStyleClass().clear();
@@ -259,7 +263,7 @@ public class ControllerMainWindow implements Initializable {
     @FXML
     private void focusPlaybacks() {
         if (!Data.importStatus.get()) {
-            System.out.println("[Playbacks Pane]");
+            LOGGER.debug("showing \"playbacks\" pane");
             Parent.getChildren().clear();
             Parent.getChildren().add(playbacksPane);
             SidebarPlaybacks.getStyleClass().clear();
@@ -289,7 +293,7 @@ public class ControllerMainWindow implements Initializable {
     @FXML
     private void focusRanking() {
         if (!Data.importStatus.get()) {
-            System.out.println("[Ranking Pane]");
+            LOGGER.debug("showing \"ranking\" pane");
             Parent.getChildren().clear();
             Parent.getChildren().add(rankingPane);
             SidebarRanking.getStyleClass().clear();
@@ -319,7 +323,7 @@ public class ControllerMainWindow implements Initializable {
     @FXML
     private void focusListeningTime() {
         if (!Data.importStatus.get()) {
-            System.out.println("[ListeningTime Pane]");
+            LOGGER.debug("showing \2listening time\" pane");
             Parent.getChildren().clear();
             Parent.getChildren().add(listeningTimePane);
             SidebarListeningTime.getStyleClass().clear();
@@ -349,7 +353,7 @@ public class ControllerMainWindow implements Initializable {
     @FXML
     private void focusExtendedData() {
         if (!Data.importStatus.get() && Data.getExtendedMode()) {
-            System.out.println("[Extended Data Pane]");
+            LOGGER.debug("showing \"extended data\" pane");
             Parent.getChildren().clear();
             Parent.getChildren().add(extendedDataPane);
             SidebarExtendedData.getStyleClass().clear();

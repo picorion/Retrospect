@@ -14,6 +14,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.Tooltip;
 import model.Data;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.net.URL;
 import java.time.LocalDate;
@@ -22,6 +24,8 @@ import java.util.ResourceBundle;
 
 @SuppressWarnings("unchecked")
 public class ControllerListeningTime implements Initializable {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(ControllerListeningTime.class);
 
     @FXML
     DatePicker DateFrom;
@@ -84,7 +88,7 @@ public class ControllerListeningTime implements Initializable {
             TotalListeningTime.setText("0");
             Chart.getData().clear();
             handleRefresh();
-            //Dont know why this works or is needed but the event listener stops working without this line
+            //Don't know why this works or is needed but the event listener stops working without this line
             Data.listeningTimeChangeEvent.getValue();
         });
 
@@ -102,7 +106,7 @@ public class ControllerListeningTime implements Initializable {
      */
     @FXML
     private void handleRefresh() {
-        System.out.println(">Listening Time Refresh<");
+        LOGGER.debug("handling refresh of listening times");
         DateFrom.getStyleClass().remove("date-picker-error");
         DateUntil.getStyleClass().remove("date-picker-error");
         if (DateFrom.getValue() == null || DateUntil.getValue() == null) {

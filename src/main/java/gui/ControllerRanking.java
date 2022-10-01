@@ -9,11 +9,15 @@ import javafx.scene.control.ToggleButton;
 import javafx.scene.control.Tooltip;
 import model.Data;
 import model.RankingData;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class ControllerRanking implements Initializable {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(ControllerRanking.class);
 
     @FXML
     DatePicker DateFrom;
@@ -92,7 +96,7 @@ public class ControllerRanking implements Initializable {
             DateFrom.setValue(Data.getFirstPlaybackDate());
             DateUntil.setValue(Data.getLastPlaybackDate());
             handleRefresh();
-            //Dont know why this works or is needed but the event listener stops working without this line
+            //Don't know why this works or is needed but the event listener stops working without this line
             Data.rankingChangeEvent.getValue();
         });
 
@@ -127,7 +131,7 @@ public class ControllerRanking implements Initializable {
      */
     @FXML
     private void handleRefresh() {
-        System.out.println(">Ranking Refresh<");
+        LOGGER.debug("handling refresh of ranking");
         DateFrom.getStyleClass().remove("date-picker-error");
         DateUntil.getStyleClass().remove("date-picker-error");
         if (DateFrom.getValue() == null || DateUntil.getValue() == null) {

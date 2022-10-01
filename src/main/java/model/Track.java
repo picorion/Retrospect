@@ -1,6 +1,8 @@
 package model;
 
 import javafx.collections.ObservableList;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.time.LocalDateTime;
 
@@ -8,6 +10,8 @@ import java.time.LocalDateTime;
  * Object that contains the data of a track
  */
 public class Track extends MusicData {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(Track.class);
 
     //default constructor
     public Track(String artist, String track, LocalDateTime dateTime) {
@@ -21,7 +25,7 @@ public class Track extends MusicData {
 
     @Override
     public ObservableList<Track> getTracks() {
-        System.out.println("!\ta track has no sub-tracks");
+        LOGGER.warn("a track has no sub-tracks");
         return null;
     }
 

@@ -17,12 +17,16 @@ import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
 import model.Data;
 import org.kordamp.ikonli.javafx.FontIcon;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class ControllerImport implements Initializable {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(ControllerImport.class);
 
     @FXML
     Button ImportButton;
@@ -82,7 +86,7 @@ public class ControllerImport implements Initializable {
     @FXML
     private void handleImport() {
         Data.importStatus.set(true);
-        System.out.println(">Import<");
+        LOGGER.debug("handling import");
         //clears the text overview
         Data.clearTextOverview();
         ImportTextField.getStyleClass().remove("textFieldError");
@@ -126,9 +130,9 @@ public class ControllerImport implements Initializable {
                     Data.updateTextOverview("\n");
                     ProgressIndicator.setVisible(false);
                     Data.importStatus.set(false);
-                    Platform.runLater(() -> {       //enables the extended mode checkbox after the import finishes
-                        ExtendedModeCheckBox.setDisable(false);
-                    });
+                    Platform.runLater(() ->        //enables the extended mode checkbox after the import finishes
+                        ExtendedModeCheckBox.setDisable(false)
+                    );
                 }
             };
 
