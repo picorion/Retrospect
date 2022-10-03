@@ -6,7 +6,7 @@
 
     <groupId>picorion</groupId>
     <artifactId>Retrospect</artifactId>
-    <version>0.11.0</version>
+    <version>1.0.0-Snapshot</version>
 
     <distributionManagement>
         <repository>
