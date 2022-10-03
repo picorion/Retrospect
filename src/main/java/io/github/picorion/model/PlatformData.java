@@ -1,9 +1,9 @@
-package model;
+package io.github.picorion.model;
 
 /**
  * Object that contains the data of individual platforms listened from
  * <p>
- * <strong>only used for analysis of extended data</strong>
+ * <strong>only used for io.github.picorion.analysis of extended data</strong>
  */
 public class PlatformData {
 

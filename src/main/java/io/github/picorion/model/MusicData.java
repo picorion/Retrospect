@@ -1,4 +1,4 @@
-package model;
+package io.github.picorion.model;
 
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.LongProperty;

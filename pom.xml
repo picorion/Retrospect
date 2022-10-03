@@ -4,13 +4,14 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>picorion</groupId>
-    <artifactId>Retrospect</artifactId>
+    <groupId>io.github.picorion</groupId>
+    <artifactId>retrospect</artifactId>
     <version>1.0.0-Snapshot</version>
 
     <distributionManagement>
         <repository>
             <id>github</id>
+            <name>GitHub picorion Apache Maven Packages</name>
             <url>https://maven.pkg.github.com/picorion/Retrospect</url>
         </repository>
     </distributionManagement>
@@ -90,7 +91,7 @@
                                     <Multi-Release>true</Multi-Release>
                                 </manifestEntries>
                                 <manifest>
-                                    <mainClass>start.Main</mainClass>
+                                    <mainClass>io.github.picorion.start.Main</mainClass>
                                 </manifest>
                             </archive>
                             <descriptorRefs>

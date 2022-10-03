@@ -1,4 +1,4 @@
-package start;
+package io.github.picorion.start;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

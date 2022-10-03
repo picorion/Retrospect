@@ -1,14 +1,14 @@
-package gui;
+package io.github.picorion.gui;
 
-import analysis.RankingAnalysis;
+import io.github.picorion.analysis.RankingAnalysis;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.Tooltip;
-import model.Data;
-import model.RankingData;
+import io.github.picorion.model.Data;
+import io.github.picorion.model.RankingData;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

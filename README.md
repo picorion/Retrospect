@@ -21,7 +21,7 @@ Have fun trying it out and exploring your listening habits.
 - View of listening history
 - Ranking of your most heard artists and songs by listening time and number of playbacks
 - Analysis of your listening times by day, month and year
-- Additional analysis for extended usage data (must be requested separately)
+- Additional io.github.picorion.analysis for extended usage data (must be requested separately)
 - Decide on the minimum listening time for songs to be considered
 
 ## Download

@@ -1,12 +1,12 @@
-package analysis;
+package io.github.picorion.analysis;
 
 import javafx.scene.image.Image;
-import model.Artist;
-import model.Data;
-import model.Playback;
-import model.PlaybackDatabase;
-import model.Track;
-import model.Userdata;
+import io.github.picorion.model.Artist;
+import io.github.picorion.model.Data;
+import io.github.picorion.model.Playback;
+import io.github.picorion.model.PlaybackDatabase;
+import io.github.picorion.model.Track;
+import io.github.picorion.model.Userdata;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;

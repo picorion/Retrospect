@@ -4,7 +4,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import org.kordamp.ikonli.javafx.FontIcon?>
-<AnchorPane prefHeight="600.0" prefWidth="950.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="gui.ControllerImport">
+<AnchorPane prefHeight="600.0" prefWidth="950.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="io.github.picorion.gui.ControllerImport">
     <BorderPane prefWidth="700.0" styleClass="parent" stylesheets="@../style/Style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <top>
             <VBox styleClass="parent" BorderPane.alignment="CENTER">

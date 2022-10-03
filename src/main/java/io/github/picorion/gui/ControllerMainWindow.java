@@ -1,4 +1,4 @@
-package gui;
+package io.github.picorion.gui;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,7 +12,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import model.Data;
+import io.github.picorion.model.Data;
 import org.kordamp.ikonli.javafx.FontIcon;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

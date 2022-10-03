@@ -1,4 +1,4 @@
-package model;
+package io.github.picorion.model;
 
 import javafx.collections.ObservableList;
 import org.slf4j.Logger;

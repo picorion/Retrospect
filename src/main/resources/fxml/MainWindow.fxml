@@ -8,7 +8,7 @@
 <?import org.kordamp.ikonli.javafx.*?>
 <AnchorPane prefHeight="625.0" prefWidth="1250.0" stylesheets="@../style/Style.css"
             xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
-            fx:controller="gui.ControllerMainWindow">
+            fx:controller="io.github.picorion.gui.ControllerMainWindow">
     <BorderPane>
         <center>
             <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">

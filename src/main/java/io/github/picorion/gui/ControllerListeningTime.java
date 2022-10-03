@@ -1,6 +1,6 @@
-package gui;
+package io.github.picorion.gui;
 
-import analysis.ListeningTimeAnalysis;
+import io.github.picorion.analysis.ListeningTimeAnalysis;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -13,7 +13,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.Tooltip;
-import model.Data;
+import io.github.picorion.model.Data;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -201,7 +201,7 @@ public class ControllerListeningTime implements Initializable {
     /**
      * Refreshes the chart by calling ListeningTimeAnalysis.refresh() and updating all series
      *
-     * @param from  start date of the chosen period
+     * @param from  io.github.picorion.start date of the chosen period
      * @param until end date of the chosen period
      */
     public static void refreshChart(LocalDate from, LocalDate until) {

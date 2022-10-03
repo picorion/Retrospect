@@ -1,4 +1,4 @@
-package gui;
+package io.github.picorion.gui;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -8,10 +8,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeTableColumn;
 import javafx.scene.control.TreeTableView;
-import model.Artist;
-import model.Data;
-import model.MusicData;
-import model.Track;
+import io.github.picorion.model.Artist;
+import io.github.picorion.model.Data;
+import io.github.picorion.model.MusicData;
+import io.github.picorion.model.Track;
 
 import java.net.URL;
 import java.util.ArrayList;

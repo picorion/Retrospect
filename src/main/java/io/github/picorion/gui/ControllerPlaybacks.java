@@ -1,4 +1,4 @@
-package gui;
+package io.github.picorion.gui;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -7,9 +7,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import model.Data;
-import model.Playback;
-import model.PlaybackDatabase;
+import io.github.picorion.model.Data;
+import io.github.picorion.model.Playback;
+import io.github.picorion.model.PlaybackDatabase;
 
 import java.net.URL;
 import java.util.ArrayList;

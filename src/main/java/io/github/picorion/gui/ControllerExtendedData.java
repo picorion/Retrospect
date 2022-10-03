@@ -1,13 +1,13 @@
-package gui;
+package io.github.picorion.gui;
 
-import analysis.ExtendedDataAnalysis;
+import io.github.picorion.analysis.ExtendedDataAnalysis;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.PieChart;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Tooltip;
-import model.Data;
-import model.PlatformData;
+import io.github.picorion.model.Data;
+import io.github.picorion.model.PlatformData;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

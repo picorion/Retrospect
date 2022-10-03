@@ -1,9 +1,9 @@
-package analysis;
+package io.github.picorion.analysis;
 
-import model.Data;
-import model.PlatformData;
-import model.Playback;
-import model.PlaybackDatabase;
+import io.github.picorion.model.Data;
+import io.github.picorion.model.PlatformData;
+import io.github.picorion.model.Playback;
+import io.github.picorion.model.PlaybackDatabase;
 
 import java.time.LocalDate;
 import java.time.YearMonth;
@@ -12,7 +12,7 @@ import java.util.Comparator;
 import java.util.List;
 
 /**
- * Methods for analysis limited to the extended spotify export data
+ * Methods for io.github.picorion.analysis limited to the extended spotify export data
  */
 public class ExtendedDataAnalysis {
 
@@ -26,7 +26,7 @@ public class ExtendedDataAnalysis {
     /**
      * Returns the distribution of podcasts in the playbacks of a given period
      *
-     * @param from  start date
+     * @param from  io.github.picorion.start date
      * @param until end date
      * @return Integer which represents the percentage of the share
      */
@@ -52,7 +52,7 @@ public class ExtendedDataAnalysis {
     /**
      * Creates a list with all platforms listened from and the number listened from
      *
-     * @param from  start date
+     * @param from  io.github.picorion.start date
      * @param until end date
      * @return list of all with all platforms listened from
      */

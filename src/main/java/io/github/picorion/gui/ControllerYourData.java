@@ -1,11 +1,11 @@
-package gui;
+package io.github.picorion.gui;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
-import model.Data;
-import model.Userdata;
+import io.github.picorion.model.Data;
+import io.github.picorion.model.Userdata;
 
 import java.net.URL;
 import java.util.ResourceBundle;

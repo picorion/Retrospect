@@ -1,16 +1,16 @@
-package analysis;
+package io.github.picorion.analysis;
 
-import model.Artist;
-import model.Data;
-import model.Playback;
-import model.PlaybackDatabase;
-import model.Track;
+import io.github.picorion.model.Artist;
+import io.github.picorion.model.Data;
+import io.github.picorion.model.Playback;
+import io.github.picorion.model.PlaybackDatabase;
+import io.github.picorion.model.Track;
 
 import java.time.LocalDateTime;
 import java.time.YearMonth;
 
 /**
- * Basis analysis methods
+ * Basis io.github.picorion.analysis methods
  */
 public class Analysis {
 

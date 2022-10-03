@@ -1,11 +1,11 @@
-package model;
+package io.github.picorion.model;
 
 import java.util.concurrent.TimeUnit;
 
 /**
  * Ranking data of an artist or track with data of a specified period
  * <p>
- * <strong>only for the ranking analysis</strong>
+ * <strong>only for the ranking io.github.picorion.analysis</strong>
  */
 public class RankingData {
 

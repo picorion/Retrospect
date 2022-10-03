@@ -1,12 +1,12 @@
-package analysis;
+package io.github.picorion.analysis;
 
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import model.Data;
-import model.Playback;
-import model.PlaybackDatabase;
+import io.github.picorion.model.Data;
+import io.github.picorion.model.Playback;
+import io.github.picorion.model.PlaybackDatabase;
 
 import java.time.LocalDate;
 import java.time.YearMonth;
@@ -16,7 +16,7 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * Methods for the analysis of listening times
+ * Methods for the io.github.picorion.analysis of listening times
  */
 public class ListeningTimeAnalysis {
 
@@ -50,7 +50,7 @@ public class ListeningTimeAnalysis {
     /**
      * Refreshes the listening time values with data from the given period
      *
-     * @param from  start date
+     * @param from  io.github.picorion.start date
      * @param until end date
      */
     public static void refresh(LocalDate from, LocalDate until) {
@@ -235,7 +235,7 @@ public class ListeningTimeAnalysis {
     /**
      * Counts the number of each weekday in a given period
      *
-     * @param from  start date
+     * @param from  io.github.picorion.start date
      * @param until end date
      * @return number of each weekday
      */
@@ -253,7 +253,7 @@ public class ListeningTimeAnalysis {
     /**
      * Counts the individual months of a time period
      *
-     * @param from  start date
+     * @param from  io.github.picorion.start date
      * @param until end date
      * @return array containing the individual number of months
      */
@@ -271,7 +271,7 @@ public class ListeningTimeAnalysis {
     /**
      * Counts the months of a given time period
      *
-     * @param from  start date
+     * @param from  io.github.picorion.start date
      * @param until end date
      * @return number of months
      */

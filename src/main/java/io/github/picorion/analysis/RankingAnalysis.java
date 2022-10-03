@@ -1,10 +1,10 @@
-package analysis;
+package io.github.picorion.analysis;
 
-import model.Data;
-import model.MusicData;
-import model.Playback;
-import model.PlaybackDatabase;
-import model.RankingData;
+import io.github.picorion.model.Data;
+import io.github.picorion.model.MusicData;
+import io.github.picorion.model.Playback;
+import io.github.picorion.model.PlaybackDatabase;
+import io.github.picorion.model.RankingData;
 
 import java.time.LocalDate;
 import java.time.YearMonth;
@@ -32,7 +32,7 @@ public class RankingAnalysis {
      * Creates the ranking data for the given time period
      * the ranking data contains a key (music data -> artist or track), the listening time and the number of playbacks
      *
-     * @param from  start date
+     * @param from  io.github.picorion.start date
      * @param until end date
      */
     public static void createRankingData(LocalDate from, LocalDate until) {

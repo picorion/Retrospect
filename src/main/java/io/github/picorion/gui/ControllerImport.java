@@ -1,6 +1,6 @@
-package gui;
+package io.github.picorion.gui;
 
-import analysis.Import;
+import io.github.picorion.analysis.Import;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -15,7 +15,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
-import model.Data;
+import io.github.picorion.model.Data;
 import org.kordamp.ikonli.javafx.FontIcon;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
